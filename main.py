@@ -1,12 +1,14 @@
 
 def main(prefm, prefw):
     IS_SINGLE = -1
-    n = len(prefm)
-    free = []
-    wife = [0] * n
+    
+    n       = len(prefm)
+    free    = []
+    wife    = [0] * n
     husband = [0] * n
-    count = [0] * n
+    count   = [0] * n
     inverse = [[]] * n
+    
     for i in range(n):
         inverse[i] = [0] * n
 
@@ -17,6 +19,7 @@ def main(prefm, prefw):
         count[i] = 0
         for j in range(n):
             inverse[i][prefw[i][j]] = j
+    
     while free:
         m = free.pop(0)
         w = prefm[m][count[m]]
@@ -63,7 +66,6 @@ if __name__ == '__main__':
         prefm, prefw = [[]] * nmarriages, [[]] * nmarriages
         for m in range(nmarriages):
             name, prefs = input().split(':')
-            list(map(lambda x: idvw_id_map[x], list(prefs)))
             prefm[idvm_id_map[name]] = list(map(lambda x: idvw_id_map[x], list(prefs)))
 
         for m in range(nmarriages):
